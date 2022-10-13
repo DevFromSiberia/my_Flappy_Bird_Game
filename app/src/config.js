@@ -1,5 +1,5 @@
 class Config {
-    gravity = 10
+    gravity = 150
 
     canvas = {
         canvasId: 'canvas',
@@ -19,7 +19,7 @@ class Config {
         width: 34,
         height: 26,
 
-        flapSpeed: 10,
+        flapSpeed: 150,
         
         frames: [
             {

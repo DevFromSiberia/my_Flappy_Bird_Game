@@ -15,14 +15,17 @@ class Entity {
     }
 
     draw() {
-        this._drawEngine.drawImage({
-            spriteSheet: this._spriteSheet,
-            image: this._frames[this._frameIdx],
-            x: this.x,
-            y: this.y,
-            width: this.width,
-            height: this.height
-        })
+		this._spriteSheet.then(sprite => {
+				this._drawEngine.drawImage({
+				spriteSheet: sprite,
+				image: this._frames[this._frameIdx],
+				x: this.x,
+				y: this.y,
+				width: this.width,
+				height: this.height
+			})
+		})
+        
     }
 
     update(delta) {

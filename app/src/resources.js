@@ -18,4 +18,4 @@ class ResourceLoader {
         const loader = this._typeLoadersMap[resource.type]
         return await loader(resource)
     }
-}
+}	
