@@ -1,5 +1,6 @@
 class Config {
     gravity = 150
+    speedGame = 10
 
     canvas = {
         canvasId: 'canvas',
@@ -13,6 +14,19 @@ class Config {
         src: 'app/assets/spritesheet.png'
     }
 
+    ground = {
+        x: 0,
+        y: 300,
+        width: this.canvas.width,
+        height: 110,
+        frames: [{
+            x: 276,
+            y: 2,
+            w: 224,
+            h: 110,
+        }]
+    }
+
     bird = {
         x: 50,
         y: 100,
@@ -21,7 +35,7 @@ class Config {
 
         flapSpeed: 150,
         
-        frames: [
+        frames:  [
             {
                 x: 276,
                 y: 112,

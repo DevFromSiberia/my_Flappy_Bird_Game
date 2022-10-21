@@ -9,10 +9,9 @@ class Canvas {
         this.height = this._config.canvas.height
         this.width = this._config.canvas.width
 		
-		this._resourceLoader = new ResourceLoader()
         this._drawEngine = new CanvasDrawEngine({canvas: this._canvas})
         this._physicsEngine = new PhysicsEngine({gravity: this._config.gravity})
-        
+        this._resourceLoader = new ResourceLoader()
 
         this._inputHandler = new MouseInputHandler({
             left: ({x, y}) => {
@@ -44,6 +43,17 @@ class Canvas {
             drawEngine: this._drawEngine,
             canvas: this
         })
+        this._ground = new Ground({
+            x: this._config.ground.x,
+            y: this._config.ground.y,
+            width: this._config.ground.width,
+            height: this._config.ground.height,
+            frames: this._config.ground.frames,
+            spriteSheet: this._spriteSheet,
+            speedGame: this._config.speedGame,
+            drawEngine: this._drawEngine,
+            canvas: this
+        })
     }
 
     update(delta) {
@@ -52,6 +62,7 @@ class Canvas {
 
     draw() {
         this._bird.draw()
+        this._ground.draw()
     }
 
     _loop() {
