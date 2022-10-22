@@ -31,6 +31,16 @@ class Canvas {
 
     reset() {
         this._score = 0
+        this._bg = new Bg({
+            x: this._config.bg.x,
+            y: this._config.bg.y,
+            width: this._config.bg.width,
+            height: this._config.bg.height,
+            frames: this._config.bg.frames,
+            spriteSheet: this._spriteSheet,
+            drawEngine: this._drawEngine,
+            canvas: this
+        })
         this._bird = new Bird({
             x: this._config.bird.x,
             y: this._config.bird.y,
@@ -54,6 +64,7 @@ class Canvas {
             drawEngine: this._drawEngine,
             canvas: this
         })
+        
     }
 
     update(delta) {
@@ -61,8 +72,10 @@ class Canvas {
     }
 
     draw() {
+        this._bg.draw()
         this._bird.draw()
         this._ground.draw()
+        
     }
 
     _loop() {

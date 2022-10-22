@@ -14,17 +14,34 @@ class Config {
         src: 'app/assets/spritesheet.png'
     }
 
+    bg = {
+        x: 0,
+        y: 0,
+        width: this.canvas.width,
+        height: this.canvas.width,
+        frames: [
+            {
+                x: 0,
+                y: 0,
+                w: 276,
+                h: 300,
+            }
+        ]
+    }
+
     ground = {
         x: 0,
         y: 300,
         width: this.canvas.width,
         height: 110,
-        frames: [{
-            x: 276,
-            y: 2,
-            w: 224,
-            h: 110,
-        }]
+        frames: [
+            {
+                x: 276,
+                y: 2,
+                w: 224,
+                h: 110,
+            }
+        ]
     }
 
     bird = {
