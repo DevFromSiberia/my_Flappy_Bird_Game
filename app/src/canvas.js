@@ -64,7 +64,17 @@ class Canvas {
             drawEngine: this._drawEngine,
             canvas: this
         })
-        
+        this._bTubes = new Tubes({
+            x: this._config.tubes.bottomTube.x,
+            y: this._config.tubes.bottomTube.y,
+            width: this._config.tubes.bottomTube.width,
+            height: this._config.tubes.bottomTube.height,
+            frames: this._config.tubes.bottomTube.frames,
+            spriteSheet: this._spriteSheet,
+            speedGame: this._config.speedGame,
+            drawEngine: this._drawEngine,
+            canvas: this
+        })
     }
 
     update(delta) {
@@ -75,7 +85,7 @@ class Canvas {
         this._bg.draw()
         this._bird.draw()
         this._ground.draw()
-        
+        this._bTubes.draw()
     }
 
     _loop() {

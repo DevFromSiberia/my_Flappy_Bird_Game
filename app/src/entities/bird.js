@@ -6,8 +6,6 @@ class Bird extends Entity {
         this.falling = true
     }
 
-    
-
     update(delta) {
         super.update(delta)
 

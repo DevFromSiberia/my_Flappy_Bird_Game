@@ -1,6 +1,6 @@
 class Config {
     gravity = 150
-    speedGame = 10
+    speedGame = 3
 
     canvas = {
         canvasId: 'canvas',
@@ -24,7 +24,7 @@ class Config {
                 x: 0,
                 y: 0,
                 w: 276,
-                h: 300,
+                h: 228,
             }
         ]
     }
@@ -42,6 +42,37 @@ class Config {
                 h: 110,
             }
         ]
+    }
+
+    tubes = {
+        topTube: {
+            x: 0,
+            y: 0,
+            width: 52,
+            height: 400,
+            frames: [
+                {
+                    x: 556,
+                    y: 1,
+                    w: 52,
+                    h: 400,
+                }
+            ]
+        },
+        bottomTube: {
+            x: this.canvas.width,
+            y: 0,
+            width: 52,
+            height: 400,
+            frames: [
+                {
+                    x: 503,
+                    y: 1,
+                    w: 52,
+                    h: 400,
+                }
+            ]
+        }
     }
 
     bird = {

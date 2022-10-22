@@ -8,7 +8,7 @@ class Ground extends Entity {
     draw() {
         this._index += 0.3
 
-        const backgroundX = -((this._index * this._SPEEDGAME) % 480) 
+        const backgroundX = -((this._index * this._SPEEDGAME) % this.width) 
 
         this._spriteSheet.then(sprites => {
             this._drawEngine.drawImage({
