@@ -48,7 +48,7 @@ class Config {
         topTube: {
             x: 0,
             y: 0,
-            width: 52,
+            width: 68,
             height: 400,
             frames: [
                 {
@@ -62,7 +62,7 @@ class Config {
         bottomTube: {
             x: this.canvas.width,
             y: 0,
-            width: 52,
+            width: 68,
             height: 400,
             frames: [
                 {
