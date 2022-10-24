@@ -19,7 +19,7 @@ class Tubes extends Entity {
         this._minTallBottomTube = 280
         this._maxTallBottomTube = 160
 
-        this._spaceTube = 500
+        this._spaceTube = 400 + params.spaceTube
 
 
         this._dist = 80

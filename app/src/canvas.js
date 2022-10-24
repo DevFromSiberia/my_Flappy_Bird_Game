@@ -78,6 +78,7 @@ class Canvas {
             speedGame: this._config.speedGame,
             drawEngine: this._drawEngine,
             canvas: this,
+            spaceTube: this._config.spaceTube
         })
     }
 
