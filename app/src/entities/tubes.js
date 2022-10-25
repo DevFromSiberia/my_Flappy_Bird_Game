@@ -16,8 +16,8 @@ class Tubes extends Entity {
 
     update(delta) {
         this._index += 45 * delta
-        this.x = (-((this._index * this._SPEEDGAME) % this._canvas.width)) + this._canvas.width
-        
+        // this.x = (-((this._index * this._SPEEDGAME) % this._canvas.width)) + this._canvas.width
+        this.x = (-(((this._index * this._SPEEDGAME) % this._canvas.width) * ((this._canvas.width + this.width) / this._canvas.width))) + this._canvas.width
         if(this.x > (this._canvas.width - 1) || this.x < -this.width) {
             this.y = this._minTallBottomTube + Math.random() * (this._maxTallBottomTube + 1 - this._minTallBottomTube)
         }
