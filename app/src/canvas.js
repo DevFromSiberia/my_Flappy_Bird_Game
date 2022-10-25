@@ -66,14 +66,11 @@ class Canvas {
         })
 
         this._tubes = new Tubes({
-            x: this._config.tubes.bottomTube.x,
-            y: this._config.tubes.bottomTube.y,
-            width: this._config.tubes.bottomTube.width,
-            height: this._config.tubes.bottomTube.height,
-
-            framesBottom: this._config.tubes.bottomTube.frames,
-            framesTop: this._config.tubes.topTube.frames,
-            
+            x: this._config.tubes.x,
+            y: this._config.tubes.y,
+            width: this._config.tubes.width,
+            height: this._config.tubes.height,
+            frames: this._config.tubes.frames,
             spriteSheet: this._spriteSheet,
             speedGame: this._config.speedGame,
             drawEngine: this._drawEngine,
@@ -84,6 +81,7 @@ class Canvas {
 
     update(delta) {
         this._bird.update(delta)
+        this._tubes.update(delta)
     }
 
     draw() {
@@ -99,9 +97,16 @@ class Canvas {
 
         this.update(delta / 1000)
 
+        
+        
         if(this._playing) {
             this._drawEngine.clear()
             this.draw()
+
+            // if(Math.floor(this._tubes.x) === this._bird.x || Math.ceil(this._tubes.x) === this._bird.x) {
+            //     this._score++
+            //     console.log(this._score)
+            // }
 
             this._lastUpdate = now
 

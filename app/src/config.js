@@ -1,6 +1,6 @@
 class Config {
     gravity = 300
-    speedGame = 3 // It isn't change!!!
+    speedGame = 6
     
 
     canvas = {
@@ -84,33 +84,26 @@ class Config {
     spaceTube = this.bird.height * 4
 
     tubes = {
-        topTube: {
-            x: 0,
-            y: 0,
-            width: 68,
-            height: 400,
-            frames: [
-                {
-                    x: 556,
-                    y: 1,
-                    w: 52,
-                    h: 400,
-                }
-            ]
-        },
-        bottomTube: {
-            x: this.canvas.width,
-            y: 0,
-            width: 68,
-            height: 400,
-            frames: [
-                {
-                    x: 503,
-                    y: 1,
-                    w: 52,
-                    h: 400,
-                }
-            ]
-        }
+        x: this.canvas.width,
+        y: 0,
+        width: 68,
+        height: 400,
+        frames: [
+            {
+                x: 503,
+                y: 1,
+                w: 52,
+                h: 400,
+            },
+            {
+                x: 556,
+                y: 1,
+                w: 52,
+                h: 400,
+            }
+        ],
+        // framesTop: [
+            
+        // ]
     }
 }
