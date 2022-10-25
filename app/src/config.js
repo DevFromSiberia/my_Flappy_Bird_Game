@@ -1,11 +1,11 @@
 class Config {
-    gravity = 150
-    speedGame = 3
+    gravity = 300
+    speedGame = 3 // It isn't change!!!
     
 
     canvas = {
         canvasId: 'canvas',
-        width: 480,
+        width: 320,
         height: 320,
     }
 

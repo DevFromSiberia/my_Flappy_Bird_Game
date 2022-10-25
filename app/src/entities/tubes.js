@@ -48,6 +48,10 @@ class Tubes extends Entity {
             })
         )
     }    
+
+    update() {
+        
+    }
     
     draw() {
         this._index += 0.3

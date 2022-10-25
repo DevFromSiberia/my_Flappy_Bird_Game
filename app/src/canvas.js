@@ -8,8 +8,8 @@ class Canvas {
 
         this.height = this._config.canvas.height
         this.width = this._config.canvas.width
-		
-        this._drawEngine = new CanvasDrawEngine({canvas: this._canvas})
+		this._score = 0
+        this._drawEngine = new CanvasDrawEngine({canvas: this._canvas, score: this._score})
         this._physicsEngine = new PhysicsEngine({gravity: this._config.gravity})
         this._resourceLoader = new ResourceLoader()
 
@@ -97,7 +97,6 @@ class Canvas {
         const now = Date.now()
         const delta =  now - this._lastUpdate
 
-        
         this.update(delta / 1000)
 
         if(this._playing) {
