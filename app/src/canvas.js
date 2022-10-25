@@ -103,11 +103,6 @@ class Canvas {
             this._drawEngine.clear()
             this.draw()
 
-            // if(Math.floor(this._tubes.x) === this._bird.x || Math.ceil(this._tubes.x) === this._bird.x) {
-            //     this._score++
-            //     console.log(this._score)
-            // }
-
             this._lastUpdate = now
 
             requestAnimationFrame(this._loop.bind(this))

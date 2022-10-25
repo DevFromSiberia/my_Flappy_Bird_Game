@@ -1,6 +1,6 @@
 class Config {
     gravity = 300
-    speedGame = 6
+    speedGame = 3
     
 
     canvas = {
