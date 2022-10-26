@@ -31,6 +31,7 @@ class Canvas {
 
     reset() {
         this._score = 0
+        
         this._bg = new Bg({
             x: this._config.bg.x,
             y: this._config.bg.y,
@@ -96,9 +97,7 @@ class Canvas {
         const delta =  now - this._lastUpdate
 
         this.update(delta / 1000)
-
-        
-        
+        this.updateCounter(delta / 15)
         if(this._playing) {
             this._drawEngine.clear()
             this.draw()
@@ -110,11 +109,30 @@ class Canvas {
         
     }
 
+    createCounter() {
+        this._counter = document.getElementById('counter')
+        this._counter.innerText = `score: ${this._score}`
+    }
+    
+    updateCounter(delta) {
+        const range = delta * this._config.speedGame
+        const condition = 
+        (this._bird.x + (this._bird.width / 2)) >= (this._tubes.x + (this._tubes.width / 2)) 
+        && 
+        this._bird.x + (this._bird.width / 2) <= (this._tubes.x + (this._tubes.width / 2) + range)
+
+        if(condition) {
+            this._score++
+            this._counter.innerText = `score: ${this._score}`
+        }
+    }
+
     start() {
         this._playing = true
         this._inputHandler.subscribe()
         this._lastUpdate = Date.now()
         this.reset()
+        this.createCounter()
         this._loop()
     }
 

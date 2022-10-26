@@ -10,12 +10,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
+        }
+
+        #counter {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
     <div id="root">
-       <canvas id="canvas"></canvas> 
+        <div id>
+            <div id="counter"></div>
+            <canvas id="canvas"></canvas> 
+        </div>
     </div>
 
     <script src="app/src/config.js"></script>
@@ -26,12 +37,11 @@
     <script src="app/src/entities/ground.js"></script>
     <script src="app/src/entities/tubes.js"></script>
 
-    <script src="app/src/interfaces/base.js"></script>
-    
     <script src="app/src/drawEngine.js"></script>
     <script src="app/src/physicsEngines.js"></script>
     <script src="app/src/inputHandlers.js"></script>
     <script src="app/src/resources.js"></script>
+
     <script src="app/src/canvas.js"></script>
     <script src="app/index.js"></script>
 </body>

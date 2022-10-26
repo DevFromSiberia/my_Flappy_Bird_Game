@@ -1,7 +1,6 @@
 class Config {
-    gravity = 300
+    gravity = 0
     speedGame = 3
-    
 
     canvas = {
         canvasId: 'canvas',
@@ -19,7 +18,7 @@ class Config {
         x: 0,
         y: 0,
         width: this.canvas.width,
-        height: this.canvas.width,
+        height: this.canvas.height,
         frames: [
             {
                 x: 0,
@@ -102,8 +101,13 @@ class Config {
                 h: 400,
             }
         ],
-        // framesTop: [
-            
-        // ]
+    }
+
+    interfaces = {
+        counter: {
+            x: this.canvas.width - 30,
+            y: 80,
+            font: "italic 18px Arial"
+        }
     }
 }
