@@ -1,6 +1,6 @@
 class Config {
-    gravity = 0
-    speedGame = 3
+    gravity = 300
+    speedGame = 3.5 // min speed 3 , max speed 5
 
     canvas = {
         canvasId: 'canvas',

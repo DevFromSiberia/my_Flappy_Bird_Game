@@ -3,21 +3,24 @@ class Tubes extends Entity {
         super(params)
         this._SPEEDGAME = params.speedGame
 
+        // variabele for x-coordinate calculation
         this._index = 0
 
-        this._bottomTall = 0
-
+        //bottom tube tall range
         this._minTallBottomTube = 280
         this._maxTallBottomTube = 160
 
-        this._spaceTube = 400 + params.spaceTube
+        this._spaceTube = this.height + params.spaceTube
     }
    
 
     update(delta) {
         this._index += 45 * delta
-        // this.x = (-((this._index * this._SPEEDGAME) % this._canvas.width)) + this._canvas.width
+
+        // x-coordinate calculation
         this.x = (-(((this._index * this._SPEEDGAME) % this._canvas.width) * ((this._canvas.width + this.width) / this._canvas.width))) + this._canvas.width
+
+        //y-coordinate calculation
         if(this.x > (this._canvas.width - 1) || this.x < -this.width) {
             this.y = this._minTallBottomTube + Math.random() * (this._maxTallBottomTube + 1 - this._minTallBottomTube)
         }

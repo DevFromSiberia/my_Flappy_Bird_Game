@@ -14,7 +14,7 @@ class Canvas {
         this._resourceLoader = new ResourceLoader()
 
         this._inputHandler = new MouseInputHandler({
-            left: ({x, y}) => {
+            left: () => {
                 this._bird.flap()
             }
         })
@@ -97,11 +97,11 @@ class Canvas {
         const delta =  now - this._lastUpdate
 
         this.update(delta / 1000)
-        this.updateCounter(delta / 15)
+        this.updateCounter()
         if(this._playing) {
             this._drawEngine.clear()
             this.draw()
-
+            
             this._lastUpdate = now
 
             requestAnimationFrame(this._loop.bind(this))
@@ -114,15 +114,15 @@ class Canvas {
         this._counter.innerText = `score: ${this._score}`
     }
     
-    updateCounter(delta) {
-        const range = delta * this._config.speedGame
-        const condition = 
-        (this._bird.x + (this._bird.width / 2)) >= (this._tubes.x + (this._tubes.width / 2)) 
+    updateCounter() {
+        const range = 1
+        const conditionForIncrease = 
+        (this._bird.x + (this._bird.width / 2) - range) <= this._tubes.x + (this._tubes.width / 2) 
         && 
-        this._bird.x + (this._bird.width / 2) <= (this._tubes.x + (this._tubes.width / 2) + range)
-
-        if(condition) {
-            this._score++
+        (this._bird.x + (this._bird.width / 2)) >= this._tubes.x + (this._tubes.width / 2);
+        
+        if(conditionForIncrease) {
+            ++this._score
             this._counter.innerText = `score: ${this._score}`
         }
     }
@@ -138,6 +138,5 @@ class Canvas {
 
     gameOver() {
         this._playing = false
-        alert(`Game over: ${this._score}`)
     }
 }
