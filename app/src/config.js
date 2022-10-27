@@ -166,6 +166,9 @@ class Config {
             scoresX: 236,
             scoresY: 180,
 
+            recordX: 236,
+            recordY: 223,
+
             medals: {
                 x: 72,
                 y: 171,

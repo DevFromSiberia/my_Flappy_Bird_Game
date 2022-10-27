@@ -11,7 +11,10 @@ class Canvas {
 
         this.height = this._config.canvas.height
         this.width = this._config.canvas.width
+
 		this._score = 0
+        this._record = !localStorage.getItem('record') ? 0 : localStorage.getItem('record')
+
         this._drawEngine = new CanvasDrawEngine({canvas: this._canvas})
         this._physicsEngine = new PhysicsEngine({gravity: this._config.gravity})
         this._resourceLoader = new ResourceLoader()
@@ -129,6 +132,9 @@ class Canvas {
             scoresX: this._config.interfaces.gameOverDesk.scoresX,
             scoresY: this._config.interfaces.gameOverDesk.scoresY,
 
+            recordX: this._config.interfaces.gameOverDesk.recordX,
+            recordY: this._config.interfaces.gameOverDesk.recordY,
+
             medalX: this._config.interfaces.gameOverDesk.medals.x,
             medalY: this._config.interfaces.gameOverDesk.medals.y,
             medalW: this._config.interfaces.gameOverDesk.medals.w,
@@ -197,6 +203,11 @@ class Canvas {
     gameOver() {
         this._drawEngine.clear()
 
+
+        if(this._score > this._record) {
+            localStorage.setItem('record', this._score)
+        }
+        
         this._bg.draw()
         this._gameOverWords.draw()
         this._gameOverDesk.draw()
@@ -218,9 +229,9 @@ class Canvas {
         this._tapImg.draw()
         
         this._canvasListener = (event) => {
-            
             this.start()
         }
+
         this._canvas.addEventListener('click', this._canvasListener)
     }
 }

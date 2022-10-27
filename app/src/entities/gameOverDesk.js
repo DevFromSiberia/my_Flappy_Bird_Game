@@ -3,6 +3,10 @@ class GameOverDesk extends Entity {
         super(params)
         this._scoresX = params.scoresX
         this._scoresY = params.scoresY
+
+        this._recordX = params.recordX
+        this._recordY = params.recordY
+
         this._medalX = params.medalX
         this._medalY = params.medalY
         this._medalW = params.medalW
@@ -12,10 +16,16 @@ class GameOverDesk extends Entity {
 
     #drawScores() {
         this._spriteSheet.then(sprites => {
-                this._drawEngine.drawText({
+            this._drawEngine.drawText({
                 x: this._scoresX,
                 y: this._scoresY,
                 text: this._canvas._score
+            })
+
+            this._drawEngine.drawText({
+                x: this._recordX,
+                y: this._recordY,
+                text: this._canvas._record
             })
         })
 
