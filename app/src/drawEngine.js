@@ -15,6 +15,15 @@ class CanvasDrawEngine extends DrawEngine {
         super.drawImage({spriteSheet, image, x, y, width, height})
 		this._context.drawImage(spriteSheet, image.x, image.y, image.w, image.h, x, y, width, height)
     }
+    
+    drawText({x, y, text}) {
+        this._context.shadowOffsetX = 2;
+        this._context.shadowOffsetY = 2.5;
+        this._context.shadowColor = '#000';
+        this._context.fillStyle = '#fff'
+        this._context.font = '22px a_FuturaRound'
+        this._context.fillText(text, x, y)
+    }
 
     clear() {
         super.clear()

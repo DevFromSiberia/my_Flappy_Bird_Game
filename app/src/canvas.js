@@ -9,7 +9,7 @@ class Canvas {
         this.height = this._config.canvas.height
         this.width = this._config.canvas.width
 		this._score = 0
-        this._drawEngine = new CanvasDrawEngine({canvas: this._canvas, score: this._score})
+        this._drawEngine = new CanvasDrawEngine({canvas: this._canvas})
         this._physicsEngine = new PhysicsEngine({gravity: this._config.gravity})
         this._resourceLoader = new ResourceLoader()
 
@@ -78,6 +78,37 @@ class Canvas {
             canvas: this,
             spaceTube: this._config.spaceTube
         })
+
+        this._gameOverWords = new GameOverWords({
+            x: this._config.interfaces.gameOverWords.x,
+            y: this._config.interfaces.gameOverWords.y,
+            width: this._config.interfaces.gameOverWords.width,
+            height: this._config.interfaces.gameOverWords.height,
+            frames: this._config.interfaces.gameOverWords.frames,
+            spriteSheet: this._spriteSheet,
+            drawEngine: this._drawEngine,
+            canvas: this,
+        })
+
+        this._gameOverDesk = new GameOverDesk({
+            x: this._config.interfaces.gameOverDesk.x,
+            y: this._config.interfaces.gameOverDesk.y,
+            width: this._config.interfaces.gameOverDesk.width,
+            height: this._config.interfaces.gameOverDesk.height,
+            frames: this._config.interfaces.gameOverDesk.frames,
+            spriteSheet: this._spriteSheet,
+            drawEngine: this._drawEngine,
+            canvas: this,
+
+            scoresX: this._config.interfaces.gameOverDesk.scoresX,
+            scoresY: this._config.interfaces.gameOverDesk.scoresY,
+
+            medalX: this._config.interfaces.gameOverDesk.medals.x,
+            medalY: this._config.interfaces.gameOverDesk.medals.y,
+            medalW: this._config.interfaces.gameOverDesk.medals.w,
+            medalH: this._config.interfaces.gameOverDesk.medals.h,
+            medalFrames: this._config.interfaces.gameOverDesk.medals.frames,
+        })
     }
 
     update(delta) {
@@ -137,6 +168,12 @@ class Canvas {
     }
 
     gameOver() {
+        this._drawEngine.clear()
+
+        this._bg.draw()
+        this._gameOverWords.draw()
+        this._gameOverDesk.draw()
+
         this._playing = false
     }
 }

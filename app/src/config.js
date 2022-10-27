@@ -104,10 +104,68 @@ class Config {
     }
 
     interfaces = {
-        counter: {
-            x: this.canvas.width - 30,
-            y: 80,
-            font: "italic 18px Arial"
+        gameOverWords: {
+            x: this.canvas.width / 2 - 189 / 2,
+            y: this.canvas.height / 2 - 39 / 0.5,
+            width: 189,
+            height: 39,
+            frames: [
+                {
+                    x: 193,
+                    y: 228,
+                    w: 189,
+                    h: 39,
+                }
+            ],
+        },
+        gameOverDesk: {
+            x: this.canvas.width / 2 - 227 / 2,
+            y: this.canvas.height / 2 - 117 / 4,
+            width: 227,
+            height: 117,
+            frames: [
+                {
+                    x: 174,
+                    y: 272,
+                    w: 227,
+                    h: 117,
+                }
+            ],
+            scoresX: 236,
+            scoresY: 180,
+
+            medals: {
+                x: 72,
+                y: 171,
+                w: 45,
+                h: 44,
+                frames: [
+                    {
+                        x: 312,
+                        y: 112,
+                        w: 45,
+                        h: 44,
+                    },
+                    {
+                        x: 312,
+                        y: 158,
+                        w: 45,
+                        h: 44,
+                    },
+                    {
+                        x: 359,
+                        y: 112,
+                        w: 45,
+                        h: 44,
+                    },
+                    {
+                        x: 359,
+                        y: 158,
+                        w: 45,
+                        h: 44,
+                    },
+                ]
+            }
         }
     }
 }
