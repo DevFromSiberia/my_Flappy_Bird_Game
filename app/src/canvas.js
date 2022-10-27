@@ -140,6 +140,11 @@ class Canvas {
             medalW: this._config.interfaces.gameOverDesk.medals.w,
             medalH: this._config.interfaces.gameOverDesk.medals.h,
             medalFrames: this._config.interfaces.gameOverDesk.medals.frames,
+
+            recordForBronze: this._config.recordForBronze,
+            recordForSilver: this._config.recordForSilver,
+            recordForGold: this._config.recordForGold,
+            recordForPlatinum: this._config.recordForPlatinum
         })
     }
 

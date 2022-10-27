@@ -1,6 +1,11 @@
 class Config {
     gravity = 300
-    speedGame = 3.5 // min speed 3 , max speed 5
+    speedGame = 3.5
+
+    recordForBronze = 20
+    recordForSilver = 50
+    recordForGold = 100
+    recordForPlatinum = 200
 
     canvas = {
         canvasId: 'canvas',

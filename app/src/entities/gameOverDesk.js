@@ -12,6 +12,11 @@ class GameOverDesk extends Entity {
         this._medalW = params.medalW
         this._medalH = params.medalH
         this._medalFrames = params.medalFrames
+
+        this._recordForBronze = params.recordForBronze
+        this._recordForSilver = params.recordForSilver
+        this._recordForGold = params.recordForGold
+        this._recordForPlatinum = params.recordForPlatinum
     }
 
     #drawScores() {
@@ -29,14 +34,28 @@ class GameOverDesk extends Entity {
             })
         })
 
-        this.#drawMedal()
+        switch (+this._canvas._record) {
+            case this._recordForBronze:
+                this.#drawMedal(3) // bronze medal
+                break
+            case this._recordForSilver:
+                this.#drawMedal(2) // silver medal
+                break
+            case this._recordForGold:
+                this.#drawMedal(1) // gold medal
+                break
+            case this._recordForPlatinum:
+                this.#drawMedal(0) // platinum medal
+                break
+        }
+             
     }
 
-    #drawMedal() {
+    #drawMedal(medalNum) {
         this._spriteSheet.then(sprites => {
             this._drawEngine.drawImage({
                 spriteSheet: sprites,
-                image: this._medalFrames[0],
+                image: this._medalFrames[medalNum],
                 x: this._medalX,
                 y: this._medalY,
                 width: this._medalW,
