@@ -4,6 +4,7 @@ class Config {
 
     canvas = {
         canvasId: 'canvas',
+        restartBtnId: 'restart',
         width: 320,
         height: 320,
     }
@@ -46,7 +47,7 @@ class Config {
 
     bird = {
         x: 50,
-        y: 100,
+        y: 200,
         width: 34,
         height: 26,
 
@@ -118,6 +119,37 @@ class Config {
                 }
             ],
         },
+
+        startWords: {
+            x: this.canvas.width / 2 - 174 / 2,
+            y: this.canvas.height / 2 - 45 / 0.5,
+            width: 174,
+            height: 45,
+            frames: [
+                {
+                    x: 0,
+                    y: 228,
+                    w: 174,
+                    h: 45,
+                }
+            ],
+        },
+
+        tapImg: {
+            x: this.canvas.width / 2 - 114 / 2,
+            y: this.canvas.height / 2 - 100 / 4,
+            width: 114,
+            height: 100,
+            frames: [
+                {
+                    x: 30,
+                    y: 281,
+                    w: 114,
+                    h: 100,
+                }
+            ],
+        },
+
         gameOverDesk: {
             x: this.canvas.width / 2 - 227 / 2,
             y: this.canvas.height / 2 - 117 / 4,
@@ -166,6 +198,6 @@ class Config {
                     },
                 ]
             }
-        }
+        },
     }
 }

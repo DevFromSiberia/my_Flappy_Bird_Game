@@ -3,8 +3,8 @@ class Tubes extends Entity {
         super(params)
         this._SPEEDGAME = params.speedGame
 
-        // variabele for x-coordinate calculation
-        this._index = 0
+        // variable for x-coordinate calculation
+        this._index = params.index
 
         //bottom tube tall range
         this._minTallBottomTube = 280
@@ -12,7 +12,6 @@ class Tubes extends Entity {
 
         this._spaceTube = this.height + params.spaceTube
     }
-   
 
     update(delta) {
         this._index += 45 * delta

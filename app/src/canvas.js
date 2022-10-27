@@ -2,7 +2,10 @@ class Canvas {
     constructor() {
         this._config = new Config()
 
+        this._canvasListener = null
+
         this._canvas = document.getElementById(this._config.canvas.canvasId)
+        this._restartBtn = document.getElementById(this._config.canvas.restartBtnId)
         this._canvas.width = this._config.canvas.width
         this._canvas.height = this._config.canvas.height
 
@@ -12,10 +15,10 @@ class Canvas {
         this._drawEngine = new CanvasDrawEngine({canvas: this._canvas})
         this._physicsEngine = new PhysicsEngine({gravity: this._config.gravity})
         this._resourceLoader = new ResourceLoader()
-
         this._inputHandler = new MouseInputHandler({
             left: () => {
                 this._bird.flap()
+                this.status = 'start'
             }
         })
     }
@@ -76,7 +79,8 @@ class Canvas {
             speedGame: this._config.speedGame,
             drawEngine: this._drawEngine,
             canvas: this,
-            spaceTube: this._config.spaceTube
+            spaceTube: this._config.spaceTube,
+            index: 0
         })
 
         this._gameOverWords = new GameOverWords({
@@ -85,6 +89,28 @@ class Canvas {
             width: this._config.interfaces.gameOverWords.width,
             height: this._config.interfaces.gameOverWords.height,
             frames: this._config.interfaces.gameOverWords.frames,
+            spriteSheet: this._spriteSheet,
+            drawEngine: this._drawEngine,
+            canvas: this,
+        })
+
+        this._startWords = new StartWords({
+            x: this._config.interfaces.startWords.x,
+            y: this._config.interfaces.startWords.y,
+            width: this._config.interfaces.startWords.width,
+            height: this._config.interfaces.startWords.height,
+            frames: this._config.interfaces.startWords.frames,
+            spriteSheet: this._spriteSheet,
+            drawEngine: this._drawEngine,
+            canvas: this,
+        })
+
+        this._tapImg = new TapImg({
+            x: this._config.interfaces.tapImg.x,
+            y: this._config.interfaces.tapImg.y,
+            width: this._config.interfaces.tapImg.width,
+            height: this._config.interfaces.tapImg.height,
+            frames: this._config.interfaces.tapImg.frames,
             spriteSheet: this._spriteSheet,
             drawEngine: this._drawEngine,
             canvas: this,
@@ -159,10 +185,11 @@ class Canvas {
     }
 
     start() {
+        this._canvas.removeEventListener('click', this._canvasListener)
         this._playing = true
         this._inputHandler.subscribe()
         this._lastUpdate = Date.now()
-        this.reset()
+        
         this.createCounter()
         this._loop()
     }
@@ -174,6 +201,26 @@ class Canvas {
         this._gameOverWords.draw()
         this._gameOverDesk.draw()
 
+        this._restartBtn.style.display = 'block'
+        canvas._restartBtn.addEventListener('click', (event) => {
+            location.reload()
+            canvas._restartBtn.style.display = 'none'
+        })
+
         this._playing = false
+    }
+
+    preview() {
+        this.reset()
+
+        this._bg.draw()
+        this._startWords.draw()
+        this._tapImg.draw()
+        
+        this._canvasListener = (event) => {
+            
+            this.start()
+        }
+        this._canvas.addEventListener('click', this._canvasListener)
     }
 }

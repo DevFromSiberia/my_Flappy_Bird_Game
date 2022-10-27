@@ -14,18 +14,46 @@
         }
 
         #counter {
+            position: absolute;
             align-self: flex-start;
             margin-bottom: 20px;
             text-transform: uppercase;
             font-size: 20px;
         }
+
+        #restart {
+            display: none;
+
+            position: absolute;
+            top: 270px;
+            left: calc(50% - 41px);
+            z-index: 1000;
+
+            width: 82px;
+            height: 28px;
+            background-image: url('app/assets/restartBtn.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+
+            box-shadow: 3px 3px black;
+            transition: box-shadow linear 0.07s;
+        }
+
+        #restart:hover {
+            box-shadow: 1px 1px black;
+            transition: box-shadow linear 0.07s;
+        }
     </style>
 </head>
 <body>
     <div id="root">
-        <div id>
+        <div>
             <div id="counter"></div>
-            <canvas id="canvas"></canvas> 
+            <button id="restart"></button> 
+            <canvas id="canvas"></canvas>
         </div>
     </div>
 
@@ -38,6 +66,8 @@
     <script src="app/src/entities/tubes.js"></script>
     <script src="app/src/entities/gameOverWords.js"></script>
     <script src="app/src/entities/gameOverDesk.js"></script>
+    <script src="app/src/entities/startWords.js"></script>
+    <script src="app/src/entities/tapImg.js"></script>
 
     <script src="app/src/drawEngine.js"></script>
     <script src="app/src/physicsEngines.js"></script>
