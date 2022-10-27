@@ -7,8 +7,8 @@ class Tubes extends Entity {
         this._index = params.index
 
         //bottom tube tall range
-        this._minTallBottomTube = 280
-        this._maxTallBottomTube = 160
+        this._minTallBottomTube = 300
+        this._maxTallBottomTube = 140
 
         this._spaceTube = this.height + params.spaceTube
     }

@@ -179,7 +179,8 @@ class Canvas {
 
     createCounter() {
         this._counter = document.getElementById('counter')
-        this._counter.innerText = `score: ${this._score}`
+        this._counter.innerText = `${this._score}`
+        this._counter.style.display = 'block'
     }
     
     updateCounter() {
@@ -191,7 +192,7 @@ class Canvas {
         
         if(conditionForIncrease) {
             ++this._score
-            this._counter.innerText = `score: ${this._score}`
+            this._counter.innerText = `${this._score}`
         }
     }
 
@@ -218,9 +219,11 @@ class Canvas {
         this._gameOverDesk.draw()
 
         this._restartBtn.style.display = 'block'
-        canvas._restartBtn.addEventListener('click', (event) => {
+        this._counter.style.display = 'none'
+        this._restartBtn.addEventListener('click', (event) => {
             location.reload()
-            canvas._restartBtn.style.display = 'none'
+            this._restartBtn.style.display = 'none'
+            
         })
 
         this._playing = false
