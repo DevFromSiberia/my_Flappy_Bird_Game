@@ -164,8 +164,14 @@ class Canvas {
         const now = Date.now()
         const delta =  now - this._lastUpdate
 
+        const tubesX1 = this._tubes.x + (this._tubes.width / 2)
         this.update(delta / 1000)
-        this.updateCounter()
+        const tubesX2 = this._tubes.x + (this._tubes.width / 2)
+
+        const deltaTubesX = tubesX1 - tubesX2
+        console.log(deltaTubesX)
+        this.updateCounter(deltaTubesX)
+        
         if(this._playing) {
             this._drawEngine.clear()
             this.draw()
@@ -183,12 +189,13 @@ class Canvas {
         this._counter.style.display = 'block'
     }
     
-    updateCounter() {
-        const range = 1
+    updateCounter(deltaTubesX) {
+        const range = deltaTubesX / 2
+        
         const conditionForIncrease = 
-        (this._bird.x + (this._bird.width / 2) - range) <= this._tubes.x + (this._tubes.width / 2) 
+        (this._bird.x + (this._bird.width / 2) - range) < this._tubes.x + (this._tubes.width / 2) 
         && 
-        (this._bird.x + (this._bird.width / 2)) >= this._tubes.x + (this._tubes.width / 2);
+        (this._bird.x + (this._bird.width / 2) + range) > this._tubes.x + (this._tubes.width / 2);
         
         if(conditionForIncrease) {
             ++this._score
