@@ -168,10 +168,10 @@ class Config {
                     h: 117,
                 }
             ],
-            scoresX: 236,
+            scoresX: 217,
             scoresY: 180,
 
-            recordX: 236,
+            recordX: 217,
             recordY: 223,
 
             medals: {

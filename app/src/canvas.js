@@ -169,7 +169,6 @@ class Canvas {
         const tubesX2 = this._tubes.x + (this._tubes.width / 2)
 
         const deltaTubesX = tubesX1 - tubesX2
-        console.log(deltaTubesX)
         this.updateCounter(deltaTubesX)
         
         if(this._playing) {
